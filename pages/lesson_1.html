@@ -1,13 +1,33 @@
+<!-- Game 1: Nối các ô từ thành câu hoàn chỉnh -->
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="../assets/css/pages/lesson.css">
-
     <title>Nối từ thành câu</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #game-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+        }
         #word-container {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .word {
             padding: 10px;
@@ -15,21 +35,27 @@
             background-color: lightblue;
             cursor: grab;
         }
+        #info-panel {
+            border: 1px solid black;
+            padding: 10px;
+            width: 150px;
+            text-align: center;
+            background-color: white;
+        }
     </style>
     <script>
         let sentences = [
             "This is a cat.",
             "She has a dog.",
             "We love to play.",
-            "He drinks water.",
-            "I eat an apple.",
-            "Messi has won more World Cups than Ronaldo."
+            "He drinks water."
         ];
-
-        // random cac cau
+        
+        // Shuffle sentences order
         sentences = sentences.sort(() => Math.random() - 0.5);
-
+        
         let currentSentenceIndex = 0;
+        let score = 0;
 
         function loadSentence() {
             let words = sentences[currentSentenceIndex].split(" ");
@@ -67,6 +93,8 @@
             let sentence = Array.from(words).map(word => word.innerText).join(" ");
             if (sentence.trim() === sentences[currentSentenceIndex]) {
                 alert("Chính xác!");
+                score += 10;
+                document.getElementById("score").innerText = score;
                 currentSentenceIndex++;
                 if (currentSentenceIndex < sentences.length) {
                     loadSentence();
@@ -82,8 +110,17 @@
     </script>
 </head>
 <body>
-    <h2>Nối từ thành câu</h2>
-    <div id="word-container" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <button onclick="checkSentence()">Kiểm tra</button>
+    <div id="game-container">
+        <div>
+            <h2>Nối từ thành câu</h2>
+            <div id="word-container" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <button onclick="checkSentence()">Kiểm tra</button>
+        </div>
+        <div id="info-panel">
+            <p>Tên: <strong>Người học</strong></p>
+            <p>Điểm: <strong id="score">0</strong></p>
+            <p>Thời gian: <strong>00:00</strong></p>
+        </div>
+    </div>
 </body>
 </html>

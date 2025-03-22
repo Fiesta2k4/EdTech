@@ -1,0 +1,23 @@
+<!-- Game 2: Nối từ với ảnh -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nối từ với ảnh</title>
+    <script>
+        function checkMatch() {
+            let word = document.getElementById("word").value.toLowerCase();
+            if (word === "cat") {
+                alert("Chính xác!");
+            } else {
+                alert("Sai rồi, thử lại nhé!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Nối từ với ảnh</h2>
+    <img src="cat.jpg" alt="Cat">
+    <input type="text" id="word" placeholder="Nhập từ...">
+    <button onclick="checkMatch()">Kiểm tra</button>
+</body>
+</html>

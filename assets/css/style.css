@@ -1,0 +1,159 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header xanh dương */
+.header {
+    background-color: #28a9e0; /* Màu xanh dương */
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.header .logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Thanh điều hướng trên cùng */
+.nav-top {
+    display: flex;
+    gap: 20px;
+    height: 45px; /* Giảm chiều cao */
+    padding: 15px 30px; /* Điều chỉnh khoảng cách trong */
+}
+
+.nav-top a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav-top a:hover {
+    text-decoration: underline;
+}
+
+/* Nút đăng xuất */
+.logout-btn {
+    background-color: #f7a008;
+    color: #28a9e0;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold; 
+
+    display: flex; /* Dùng flexbox để căn giữa */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+.logout-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Menu trắng phía dưới */
+.nav-bar {
+    background-color: white;
+    width: 80%;
+    margin: -25px auto 20px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Mục menu */
+.nav-bar a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    position: relative;
+}
+
+.nav-bar a:hover {
+    color: #28a9e0;
+}
+
+/* Tạo dropdown giả */
+.nav-bar a::after {
+    content: " ▼";
+    font-size: 12px;
+    color: gray;
+}
+
+/* Phần nội dung */
+.main-content {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Căn giữa toàn bộ màn hình */
+.lessons {
+    display: flex; /* Dùng flexbox để căn giữa */
+    justify-content: center; /* Canh giữa theo chiều ngang */
+    align-items: center; /* Canh giữa theo chiều dọc */
+    height: 100vh; /* Chiều cao full màn hình */
+}
+
+/* Định dạng danh sách bài học */
+.lessons ol {
+    list-style: none; /* Bỏ dấu đầu dòng mặc định */
+    display: flex; /* Hiển thị theo hàng ngang */
+    gap: 20px; /* Khoảng cách giữa các ô */
+    padding: 0;
+}
+
+/* Định dạng từng bài học */
+.lessons li {
+    background-color: #3498db; /* Màu nền xanh */
+    color: white; /* Chữ màu trắng */
+    padding: 15px 25px; /* Kích thước padding */
+    border-radius: 10px; /* Bo góc */
+    font-size: 18px;
+    text-align: center;
+    min-width: 100px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Hover hiệu ứng */
+.lessons li:hover {
+    background-color: #2980b9; /* Đổi màu khi hover */
+    transform: scale(1.1); /* Phóng to nhẹ */
+}
+
+
+
+/* Biểu tượng hỗ trợ (góc dưới bên phải) */
+.support-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.support-icon img {
+    width: 35px;
+}

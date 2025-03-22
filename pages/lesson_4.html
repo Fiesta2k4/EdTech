@@ -1,0 +1,26 @@
+<!-- Game 4: Điền vào chỗ trống bằng Listening -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Điền vào chỗ trống</title>
+    <script>
+        function checkFill() {
+            let answer = document.getElementById("fill").value.toLowerCase();
+            if (answer === "apple") {
+                alert("Chính xác!");
+            } else {
+                alert("Sai rồi, thử lại nhé!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Điền vào chỗ trống</h2>
+    <audio controls>
+        <source src="apple.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+    <input type="text" id="fill" placeholder="Nhập từ...">
+    <button onclick="checkFill()">Kiểm tra</button>
+</body>
+</html>

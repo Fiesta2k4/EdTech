@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../assets/css/pages/lesson.css">
+
+    <title>Nối từ thành câu</title>
+    <style>
+        #word-container {
+            display: flex;
+            gap: 10px;
+        }
+        .word {
+            padding: 10px;
+            border: 1px solid black;
+            background-color: lightblue;
+            cursor: grab;
+        }
+    </style>
+    <script>
+        let sentences = [
+            "This is a cat.",
+            "She has a dog.",
+            "We love to play.",
+            "He drinks water.",
+            "I eat an apple.",
+            "Messi has won more World Cups than Ronaldo."
+        ];
+
+        // random cac cau
+        sentences = sentences.sort(() => Math.random() - 0.5);
+
+        let currentSentenceIndex = 0;
+
+        function loadSentence() {
+            let words = sentences[currentSentenceIndex].split(" ");
+            words = words.sort(() => Math.random() - 0.5);
+            let container = document.getElementById("word-container");
+            container.innerHTML = "";
+            words.forEach((word, index) => {
+                let div = document.createElement("div");
+                div.className = "word";
+                div.id = "word" + index;
+                div.draggable = true;
+                div.innerText = word;
+                div.ondragstart = drag;
+                container.appendChild(div);
+            });
+        }
+        
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+        
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+        
+        function drop(event) {
+            event.preventDefault();
+            let data = event.dataTransfer.getData("text");
+            let draggedElement = document.getElementById(data);
+            event.target.insertAdjacentElement('beforebegin', draggedElement);
+        }
+        
+        function checkSentence() {
+            let words = document.querySelectorAll("#word-container .word");
+            let sentence = Array.from(words).map(word => word.innerText).join(" ");
+            if (sentence.trim() === sentences[currentSentenceIndex]) {
+                alert("Chính xác!");
+                currentSentenceIndex++;
+                if (currentSentenceIndex < sentences.length) {
+                    loadSentence();
+                } else {
+                    alert("Bạn đã hoàn thành tất cả các câu!");
+                }
+            } else {
+                alert("Sai rồi, thử lại nhé!");
+            }
+        }
+        
+        window.onload = loadSentence;
+    </script>
+</head>
+<body>
+    <h2>Nối từ thành câu</h2>
+    <div id="word-container" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <button onclick="checkSentence()">Kiểm tra</button>
+</body>
+</html>

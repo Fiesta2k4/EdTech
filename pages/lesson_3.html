@@ -1,0 +1,23 @@
+<!-- Game 3: True/False câu hỏi hình ảnh -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>True/False</title>
+    <script>
+        function checkAnswer(answer) {
+            if (answer === 'true') {
+                alert("Chính xác!");
+            } else {
+                alert("Sai rồi, thử lại nhé!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>True/False</h2>
+    <img src="dog.jpg" alt="Dog">
+    <p>Đây có phải là con mèo không?</p>
+    <button onclick="checkAnswer('true')">Đúng</button>
+    <button onclick="checkAnswer('false')">Sai</button>
+</body>
+</html>
